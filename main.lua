@@ -155,12 +155,12 @@ end
 
 function moneycheck()
     MONEY = game:GetService("Players").LocalPlayer.Data.Beli.Value
-    if MONEY >= 15000000 then
+    if MONEY >= 7000000 then
         MNFN = true
         TextMN.Position = UDim2.new(0, 90, 0, 95)
         TextMN.TextColor3 = Color3.fromHex("#64ff64")
         TextMN.Text = "เงินครบแล้ว"
-    elseif MONEY <= 15000000 then
+    elseif MONEY <= 7000000 then
         MNFN = false
         TextMN.Position = UDim2.new(0, 97, 0, 95)
         TextMN.TextColor3 = Color3.fromHex("#ff3232")
