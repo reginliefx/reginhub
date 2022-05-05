@@ -1,36 +1,3 @@
-getgenv().Settings = {
-    ["LineToken"] = "",
-    ["CheckTask"] = {
-        ["Fruit"] = "ไม่มีผลน้าบอุนจิ ❌",
-        ["Money"] = "เงินยังไม่ครบ ❌",
-        ["Yama"] = "No ❌",
-        ["Buddy"] = "No ❌",
-        ["Hallow"] = "No ❌",
-        ["Dark Dagger"] = "No ❌",
-        ["Spikey Trident"] = "No ❌",
-        ["Success"] = "No ❌"
-    }
-}
-
-local function SendNotify(message) 
-    local response = syn.request({
-        Url = "https://notify-api.line.me/api/notify",
-        Method = "POST",
-        Headers = {
-            ["Authorization"] = "Bearer " .. getgenv().Settings['LineToken'],
-            ["Content-Type"] = "application/x-www-form-urlencoded"
-        },
-        Body = "message=" .. message
-    })
-end
-
-local function SendTask()
-    local tasklist = game.Players.LocalPlayer.Name .. "\n"
-    table.foreach(getgenv().Settings["CheckTask"], function(task, stat)
-        tasklist = tasklist .. task .. " : " .. stat .. "\n"
-    end)
-    SendNotify(tasklist)
-end
 
 --find old ui
 if game.CoreGui:FindFirstChild("hehe") then 
@@ -426,7 +393,6 @@ end
 spawn(function()
     while wait() do
         pcall(function()
-            turnoffui()
             dfcheck()
             moneycheck()
             checkyama()
@@ -439,13 +405,5 @@ spawn(function()
             Refresh()
             wait(1)
         end)
-    end
-end)
-
-spawn(function()
-    repeat wait() until game:IsLoaded() and game.Players.LocalPlayer.Team ~= nil
-    SendTask()
-    while true do wait(3600)
-        SendTask() 
     end
 end)
