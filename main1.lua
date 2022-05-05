@@ -289,7 +289,7 @@ function FNcheck()
     elseif DFFN and MNFN and YMFN and BDFN and STFN then
         TextFN.Position = UDim2.new(0, 160, 0, 305)
         TextFN.TextColor3 = Color3.fromHex("#FFFF00")
-        TextFN.Text = "ขาดเคียวกับโยรุจิ๋ว""
+        TextFN.Text = "ขาดเคียวกับโยรุจิ๋ว"
     elseif DFFN and MNFN and YMFN and BDFN and HSFN then
         TextFN.Position = UDim2.new(0, 160, 0, 305)
         TextFN.TextColor3 = Color3.fromHex("#FFFF00")
